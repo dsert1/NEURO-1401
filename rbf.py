@@ -19,8 +19,8 @@ class RBF:
          
      
     def Euclidean_distance(self,first, second):
-        print(type(first))
-        print(type(second))
+        # print(type(first))
+        # print(type(second))
         try:
             squDist = 0
             for i in range(len(first)):
@@ -151,7 +151,7 @@ class RBF:
                 #print(s)    
                 if y_train[j,s]==1:
                     c=c+1
-            print("train : ",c/len(x_train))    
+            # print("train : ",c/len(x_train))
            
             mse=self.MSE(pred,y_train,self.Num_of_classes)
             ys.append(mse)
@@ -202,8 +202,8 @@ class RBF:
                 if y_test[j,k]==1:
                         e=k
             confusion_matrix[e,s]=confusion_matrix[e,s]+1     
-        pprint.pprint(confusion_matrix)
-        print("test : ",c/len(x_test))    
+        # pprint.pprint(confusion_matrix)
+        # print("test : ",c/len(x_test))
       
         return c/len(x_test)
     
@@ -225,7 +225,7 @@ class RBF:
         #pred=sigmoid(pred)
       
            
-        print('This is a: ', p[0])
+        # print('This is a: ', p[0])
         return p
     def LoadWeights(self,Neurons_Entry,LearningRate_Entry,Mse_threshold,epochs_Entry,classes,x,y_train,x_test,y_test):
         self.Num_of_classes=int(classes)
