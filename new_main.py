@@ -40,14 +40,14 @@ def Train():
 
 
 
-    squares = {'[ORIGINAL] small_square.png',
-               '45_square.png',
-               'left_82square.png',
-               '63_square.png'}
+    squares = {'[ORIGINAL] small_square.png': 'blue',
+               '45_square.png': 'green',
+               'left_82square.png': 'orange',
+               '63_square.png': 'red'}
     counter = 0
     times = {}
     file_prefix = 'Data set/Training/'
-    NUM_OF_TRIALS = 30
+    NUM_OF_TRIALS = 10
 
 
     while counter < NUM_OF_TRIALS:
@@ -59,14 +59,16 @@ def Train():
     # pp.pprint(times)
 
     for square, times in times.items():
-        plt.plot(times, label=square)
+        plt.plot(times, label=square, color=squares[square])
         max_time = np.max(times)
-        plt.annotate(r'$\mu$: ' + str(round(np.max(times), 3)), (times.index(max_time), max_time))
+        plt.annotate(str(round(np.max(times), 3)), (times.index(max_time), max_time))
         plt.legend()
-    plt.title('Performance Between Squares')
+    plt.title('Performance Between Squares with N = ' + str(NUM_OF_TRIALS) + ' trials')
     plt.xlabel('No. of trials')
     plt.ylabel('Time in seconds')
+    plt.xticks(np.arange(0, NUM_OF_TRIALS, step=1))
 
+    plt.savefig('12.png')
     plt.show()
 
 
